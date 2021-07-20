@@ -13,15 +13,15 @@ const mockData = [
 
 
 function App() {
-  const [teamList, setTeamList] = useState(mockData)
+  const [team, setTeam] = useState(mockData)
   const addToTeam = newMember => {
-    setTeam({...team, newMember})
+    setTeam([...team, newMember])
   }
 
   return (
     <div className="App">
-      {teamList.map ( member => ( <TeamMembers teamMember={member} /> ))}
-      <UserInput addToTeam={addToTeam} />
+      <UserInput addToTeam={addToTeam}/>
+      {team.map ( member => { return <TeamMembers teamMember={member} /> })}
     </div>
   );
 }
